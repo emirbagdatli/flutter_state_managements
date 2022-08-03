@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_state_managements/feature/login/view/login_view.dart';
 import 'package:flutter_state_managements/feature/onboard/onboard_model.dart';
 import 'package:flutter_state_managements/feature/onboard/tab_indicator.dart';
+import 'package:flutter_state_managements/product/model/state/project_context.dart';
+import 'package:flutter_state_managements/product/model/state/user_context.dart';
 import 'package:flutter_state_managements/product/padding/page_padding.dart';
 import 'package:flutter_state_managements/product/widget/onboard_card.dart';
-
+import 'package:kartal/kartal.dart';
+import 'package:provider/provider.dart';
 part 'module/start_fab_button.dart';
 
 class OnBoardView extends StatefulWidget {
@@ -60,16 +63,20 @@ class _OnBoardViewState extends State<OnBoardView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
+          title: Text(context.watch<ProductContext>().newUserName),
           actions: [
             ValueListenableBuilder<bool>(
-              valueListenable: isBackEnable,
-              builder: (BuildContext context, bool value, Widget? child) {
-                return value ? const SizedBox() : TextButton(onPressed: () {}, child: Text(_skipTitle));
-              },
-            ),
+                valueListenable: isBackEnable,
+                builder: (BuildContext context, bool value, Widget? child) {
+                  return value
+                      ? const SizedBox()
+                      : TextButton(
+                          onPressed: () {
+                            context.read<ProductContext>().changeName('a');
+                            context.navigateToPage(const LoginView());
+                          },
+                          child: Text(_skipTitle));
+                })
           ],
           leading: _isFirstPage
               ? null
@@ -78,15 +85,11 @@ class _OnBoardViewState extends State<OnBoardView> {
         padding: const PagePadding.all(),
         child: Column(
           children: [
-            Expanded(
-              child: _pageView(),
-            ),
+            Expanded(child: _pageView()),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TabIndicator(
-                  selectedIndex: _selectedIndex,
-                ),
+                TabIndicator(selectedIndex: _selectedIndex),
                 _StartFabButton(
                   isLastPage: _isLastPage,
                   onPressed: () {
