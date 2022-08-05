@@ -32,6 +32,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "bloc",
+      "rootUri": "file:///Users/macbook/development/flutter/.pub-cache/hosted/pub.dartlang.org/bloc-8.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///Users/macbook/development/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
       "packageUri": "lib/",
@@ -238,6 +244,12 @@
     {
       "name": "flutter",
       "rootUri": "file:///Users/macbook/development/flutter/packages/flutter",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_bloc",
+      "rootUri": "file:///Users/macbook/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-8.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -824,7 +836,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-08-03T14:50:20.682520Z",
+  "generated": "2022-08-05T18:00:11.160092Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

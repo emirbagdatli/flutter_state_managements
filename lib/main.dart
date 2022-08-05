@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_state_managements/feature/maps/view/map_select_view.dart';
 import 'package:flutter_state_managements/feature/onboard/onboard_view.dart';
 import 'package:flutter_state_managements/feature/login/view/login_view.dart';
+import 'package:flutter_state_managements/feature/travel/view/travel_tab_view.dart';
 import 'package:flutter_state_managements/product/model/state/project_context.dart';
 import 'package:flutter_state_managements/product/model/state/user_context.dart';
 import 'package:provider/provider.dart';
@@ -29,8 +30,13 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Material App',
-            home:  MapSelectView(),
+            home: const TravelTabView(),
             theme: ThemeData.light().copyWith(
+                tabBarTheme: const TabBarTheme(
+                  labelColor: Colors.orange,
+                  unselectedLabelColor: Colors.grey,
+                  indicatorSize: TabBarIndicatorSize.label,
+                ),
                 appBarTheme: const AppBarTheme(
                     backgroundColor: Colors.transparent, elevation: 0, systemOverlayStyle: SystemUiOverlayStyle.dark),
                 scaffoldBackgroundColor: Colors.grey[100],
